@@ -111,13 +111,13 @@
               <a href="https://people.ece.uw.edu/ostendorf/">Mari Ostendorf</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://scottyih.org/">Wen-tau Yih</a><sup>3</sup>
+              <a href="https://scottyih.org/">Wen-tau Yih,</a><sup>3</sup>
             </span>
             <span class="author-block">
-              <a href="https://nasmith.github.io/#:~:text=Noah%20Smith%20is%20a%20computer,a%20wide%20range%20of%20applications.">Noah A. Smith</a><sup>2</sup><sup>4</sup>
+              <a href="https://nasmith.github.io/#:~:text=Noah%20Smith%20is%20a%20computer,a%20wide%20range%20of%20applications.">Noah A. Smith</a>,<sup>2,</sup><sup>4</sup>
             </span>
             <span class="author-block">
-              <a href="https://www.cs.washington.edu/people/faculty/lsz">Luke Zettlemoyer</a><sup>2</sup><sup>3</sup>
+              <a href="https://www.cs.washington.edu/people/faculty/lsz">Luke Zettlemoyer</a>,<sup>2,</sup><sup>3</sup>
             </span>
             <span class="author-block">
               <a href="https://taoyds.github.io/">Tao Yu</a><sup>1</sup>
@@ -127,7 +127,7 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>The University of Hong Kong,</span>
             <span class="author-block"><sup>2</sup>University of Washington,</span>
-            <span class="author-block"><sup>3</sup>Meta AI</span>
+            <span class="author-block"><sup>3</sup>Meta AI,</span>
             <span class="author-block"><sup>4</sup>Allen Institute for AI</span>
           </div>
 
@@ -194,10 +194,10 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="subtitle has-text-centered">
-        We introduce <span class="dnerf">INSTRUCTOR</span>, a new method for computing text embeddings given task instructions. With instructions, the embeddings are domain-specific (e.g., specialized for science, finance, etc.) and task-aware (e.g., customized for classification, information retrieval, etc.).
+        We introduce <span class="dnerf">Instructor</span>👨‍🏫, an instruction-finetuned text embedding model that can generate text embeddings tailored to any task (e.g., classification, retrieval, clustering, text evaluation, etc.) and domains (e.g., science, finance, etc.) by simply providing the task instruction, without any finetuning. Instructor achieves sota on 70 diverse embedding tasks!
       </h2>
       <p align="center">
-        <img src="static/images/multitask.png" width="800" height="400" class="center"> <!-- To .gif format-->
+        <img src="static/images/multitask.png" width="1000" height="500" class="center"> <!-- To .gif format-->
       </p>
 
     </div>
@@ -248,7 +248,7 @@
         </ul>
           <img src="static/images/main_results.png" class="center">
           <p>
-            Compared to GTR(335M/1.5B), from which INSTRUCTOR (335M/1.5B) is initialized, instruction finetuninig enhances the performance by 5.9%. Compared to the state-of-the-art model (Sent-T5-XXL), INSTRUCTOR (335M/1.5B) achieves 3.4% and 4.1% performance gains respectively.
+            Retri., Pair., Class., Sum., Text Eval. refer to retrieval, pair classification, classification, summarization, and text evaluation, respectively. Compared to GTR(335M/1.5B), from which INSTRUCTOR (335M/1.5B) is initialized, instruction finetuninig enhances the performance by 5.9%. Compared to the state-of-the-art model (Sent-T5-XXL), INSTRUCTOR (335M/1.5B) achieves 3.4% and 4.1% performance gains respectively.
           </p>
         </div>
       </div>
