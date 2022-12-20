@@ -194,10 +194,10 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">INSTRUCTOR</span> is a universal encoder, capable of calculating fixed-size embeddings for any piece of text (e.g., a title, a sentence, a document, etc.) in test time without further training. With instructions, the embeddings are domain-specific (e.g., specialized for science, finance, etc.) and task-aware (e.g., customized for classification, information retrieval, etc.)
+        We introduce <span class="dnerf">INSTRUCTOR</span>, a new method for computing text embeddings given task instructions. With instructions, the embeddings are domain-specific (e.g., specialized for science, finance, etc.) and task-aware (e.g., customized for classification, information retrieval, etc.). On 70 diverse evaluation tasks, <span class="dnerf">INSTRUCTOR</span> outperforms the previous best results by 3.4% on average.
       </h2>
       <p align="center">
-        <img src="static/images/first.png" width="500" height="500" class="center"> <!-- To .gif format-->
+        <img src="static/images/multitask.png" width="800" height="400" class="center"> <!-- To .gif format-->
       </p>
 
     </div>
@@ -231,7 +231,7 @@
   </div>
 </section>
   
- <section class="section">
+<!--  <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -250,14 +250,14 @@
   </div>
     <!--/ Abstract. -->
   </div>
-</section>
+</section> -->
   
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Results. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3">Main Results</h2>
         <div class="content has-text-justified">
           <p>
             <span class="dnerf">INSTRUCTOR</span> achieves <strong>SOTA</strong> performance without further training on a wide range of tasks.
@@ -267,22 +267,10 @@
           <li><a href="https://arxiv.org/abs/2112.04139">Billboard</a> (Evaluate test generation quality)</li>
           <li><a href="https://arxiv.org/abs/2209.01975">Prompt Retrieval</a> (Retrieve examples for in-context learning) </li>
         </ul>
-        <img src="static/images/main_results.png" class="center">
+          <img src="static/images/main_results.png" class="center">
           <p>
-            Further, instruction has shown to be important to the INSTRUCTOR training on diverse data (Left), and super-NaturalInstruction datasets are critical to the INSTRUCTOR robustness of prompt paraphrase.
+            Compared to GTR(335M/1.5B), from which INSTRUCTOR (335M/1.5B) is initialized, instruction finetuninig enhances the performance by 5.9%. Compared to the state-of-the-art model (Sent-T5-XXL), INSTRUCTOR (335M/1.5B) achieves 3.4% and 4.1% performance gains respectively.
           </p>
-        <img src="static/images/figure34.png" class="center">
-          <p>
-            In addition, by making instruction more detailed (Left) and model size larger (Right), the performance of INSTRUCTOR is consistently improved.
-          </p>
-        <img src="static/images/figure56.png" class="center">
-          <p>
-            Last but not least, with domain shift in evaluation, the improvement of instruction tuning is more pronounced.
-          </p>
-         <p align="center">
-        <img src="static/images/domain_adaptation.png" class="center">
-           </p>
-        <ul>
         </div>
       </div>
     </div>
@@ -292,6 +280,41 @@
 </section>
   
 <section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Analysis</h2>
+        <div class="content has-text-justified">
+          <p>
+            Further, instruction has shown to be important to the INSTRUCTOR training on diverse data (Left), and super-NaturalInstruction datasets are critical to the INSTRUCTOR robustness of prompt paraphrase.
+          </p>
+        <img src="static/images/figure34.png" class="center">
+          <p>
+            In addition, by making instruction more detailed (Left) and model size larger (Right), the performance of INSTRUCTOR is consistently improved.
+          </p>
+        <img src="static/images/figure56.png" class="center">
+          <p>
+            With domain shift in evaluation, the improvement of instruction tuning is more pronounced.
+          </p>
+         <p align="center">
+        <img src="static/images/domain_adaptation.png" width="400" height="100" class="center">
+           </p>
+          <p>
+            Last but not least, we use T-SNE to visualize two examples. The green dot pair is an example with different sentiment. Without instructions, they are close in the embedding space (probably because they 4 same words in text). With instructions, INSTRUCTOR separates them apart and differentiate their sentiment. For red pairs, they are distant without instructions (probably because they look very different). With instructions, they are closer, which is aligned with their same emotion.
+          </p>
+        <p align="center">
+           <img src="static/images/qualititive.png" width="400" height="400" class="center"> <!-- To .gif format-->
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--/ Results. -->
+
+</section>
+  
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -310,7 +333,7 @@
   </div>
     <!--/ Abstract. -->
   </div>
-</section>
+</section> -->
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -327,6 +350,13 @@
     </div>
   </div>
     <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgement</h2>
+   We thank <a href="https://akariasai.github.io/">Akari Asai</a>, Jack Lin, Minghan Li, and <a href="https://noahs-ark.github.io/">the ARK group at UW</a> for their helpful feedback on this work.
   </div>
 </section>
  
