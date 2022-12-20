@@ -6,6 +6,12 @@
         content="One embedder for all tasks">
   <meta name="keywords" content="Embedder, encoder">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>CodeMirror RunMode Highlighting Example</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/lib/codemirror.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/addon/runmode/runmode-standalone.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/mode/python/python.min.js"></script>
+
   <title>One Embedder, Any Task: Instruction-Finetuned Text Embeddings</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -106,7 +112,7 @@
             </span>
             <span class="author-block">
               <a href="https://yushi-hu.github.io/">Yushi Hu</a><sup>2</sup>,
-            </span>
+            </span><br>
             <span class="author-block">
               <a href="https://people.ece.uw.edu/ostendorf/">Mari Ostendorf</a><sup>2</sup>,
             </span>
@@ -194,13 +200,31 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="subtitle has-text-centered">
-        We introduce <span class="dnerf">Instructor</span>👨‍🏫, an instruction-finetuned text embedding model that can generate text embeddings tailored to any task (e.g., classification, retrieval, clustering, text evaluation, etc.) and domains (e.g., science, finance, etc.) by simply providing the task instruction, without any finetuning. Instructor achieves sota on 70 diverse embedding tasks!
+        We introduce <span class="dnerf">Instructor</span>👨‍🏫, an instruction-finetuned text embedding model that can generate text embeddings tailored to any task (e.g., classification, retrieval, clustering, text evaluation, etc.) and domains (e.g., science, finance, etc.) by simply providing the task instruction, without any finetuning. <span class="dnerf">Instructor</span> achieves sota on 70 diverse embedding tasks!
       </h2>
       <p align="center">
-        <img src="static/images/multitask.png" width="1000" height="500" class="center"> <!-- To .gif format-->
+        <img src="static/images/multitask.png" width="100%" align="middle" class="center"/> <!-- To .gif format-->
       </p>
 
     </div>
+  </div>
+</section>
+
+ <section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">How to use?</h2>
+        <div class="content has-text-justified">
+          <p>
+            <span class="dnerf">Instructor</span>👨‍🏫 embedding model is on Huggingface 🤗 (<a href="https://huggingface.co/hkunlp/instructor-large">Download Link</a>)! It is very simple to try it out!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--/ Abstract. -->
   </div>
 </section>
   
@@ -321,9 +345,12 @@
         <p>
             MEDI (Multitask Embeddings Data with Instructions) data consist of a collection of 330 datasets from Super-NI(Super-NaturalInstructions), sentence-transformer embedding training data, and KILT, spanning a wide range of domains and tasks. We construct positive and negative pairs if they are not provided, and store them in a unified format:
           </p>
-        <p align="center">
-           <img src="static/images/data_format.png" width="500" height="100" class="center"> <!-- To .gif format-->
-        </p>
+<pre><code>{
+    [{'query': ['Represent the Amazon title for retrieving relevant reviews; Input: ', 'Like a Jason Bourne in the Space Program!', 0], 'pos': ['Represent the Amazon review for retrieval; Input: ', 'Loved it!  It is Exciting, interesting, and even including information about the space program.', 1], 'neg': ['Represent the Amazon review for retrieval; Input: ', 'If you love Vegemite the way I do, this is the easiest way to obtain it.', 1]}, {'query': ['Represent the Amazon title for retrieving relevant reviews; Input: ', 'Anderson puts it all together', 0], 'pos': ['Represent the Amazon review for retrieval; Input: ', 'Having observed how techology has spawned new enterprises, I find that Anderson puts it all together in a meaningful and understandable tome.  He has found the common thread that will define success and failure in the future.', 1], 'neg': ['Represent the Amazon review for retrieval; Input: ', 'Outstanding device.  Very happy I upgraded.  The flexibility is endless.', 1]}, {'query': ['Represent the Amazon title for retrieving relevant reviews; Input: ', "I haven't really had a chance to use my purchase ...", 0], 'pos': ['Represent the Amazon review for retrieval; Input: ', "I haven't really had a chance to use my purchase, but it appears to be what I was looking for.", 1], 'neg': ['Represent the Amazon review for retrieval; Input: ', 'My new expandable hose works just as advertised after carefully following the first use instructions - adding pressure very gradually to allow the hose to expand slowly the first time!', 1]}, {'query': ['Represent the Amazon title for retrieving relevant reviews; Input: ', 'works cool, easy to implement', 0], 'pos': ['Represent the Amazon review for retrieval; Input: ', 'works cool, easy to implement, fix a door easily from inside, perfect for tenants with landlords who have lease-enabled entry access.', 1], 'neg': ['Represent the Amazon review for retrieval; Input: ', 'Another page turner !  I am going to research other books by this author as I have not read many and I really enjoy his themes and characters as well as the history.', 1]}]
+    [{'query': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'An old man with a bag of chips sits with a younger man holding a drink.', 0], 'pos': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'The men have food.', 1], 'neg': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'The men have starved to death.', 1]}, {'query': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'The woman on the left is having her picture taken with another woman who is wearing a tall pink hat.', 0], 'pos': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'Two women are being photographed.', 1], 'neg': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'The woman on the left is taking a picture of the other.', 1]}, {'query': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'Mother and daughter wearing Alice in wonderland customs are posing for a picture.', 0], 'pos': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'Two people are posing for the camera.', 1], 'neg': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'Two people are sleeping at the Disney Castle.', 1]}, {'query': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'A picture of two women with one in lacy white dress with handbag and leggings and the other with a tall red hat, black mid-dress, and frame like plastic dress on top.', 0], 'pos': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'A photo of a couple of females in strange outfits.', 1], 'neg': ['Represent the sentence for retrieving duplicate sentences; Input: ', 'Two females at a bar drinking.', 1]}]
+    ...
+    [{'query': ['Represent the image caption for retrieving duplicate captions; Input: ', 'Several men standing near a train while other men are walking towards the train. ', 0], 'pos': ['Represent the image caption for retrieving duplicate captions; Input: ', 'A train is on the train tracks while people stand around it.', 1], 'neg': ['Represent the image caption for retrieving duplicate captions; Input: ', "An old toilet that's missing its lid and is vandalized with graffiti.", 1]}, {'query': ['Represent the image caption for retrieving duplicate captions; Input: ', 'A curious cat looking at a yellow bird inside a cage.', 0], 'pos': ['Represent the image caption for retrieving duplicate captions; Input: ', 'A cat near a yellow bird in a cage. ', 1], 'neg': ['Represent the image caption for retrieving duplicate captions; Input: ', 'A giraffe walking through a lush green forest.', 1]}, {'query': ['Represent the image caption for retrieving duplicate captions; Input: ', 'There is a baby elephant all by itself in the cage. ', 0], 'pos': ['Represent the image caption for retrieving duplicate captions; Input: ', 'A small baby elephant biting a rail in a pin.', 1], 'neg': ['Represent the image caption for retrieving duplicate captions; Input: ', 'Books and snacks resting on and around a small table.', 1]}, {'query': ['Represent the image caption for retrieving duplicate captions; Input: ', 'A woman standing on the platform while looking in a train. ', 0], 'pos': ['Represent the image caption for retrieving duplicate captions; Input: ', 'A lady with a luggage cart sticking her head in a train door.', 1], 'neg': ['Represent the image caption for retrieving duplicate captions; Input: ', 'A giraffe that is standing in the grass on a sunny day. ', 1]}]
+}</code></pre>
         </div>
       </div>
     </div>
@@ -376,3 +403,4 @@
 
 </body>
 </html>
+
