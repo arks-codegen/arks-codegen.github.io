@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="One embedder for all tasks">
-  <meta name="keywords" content="Embedder, encoder">
+        content="Pipeline for retrieval-augmented code generation">
+  <meta name="keywords" content="retrieval, code generation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/lib/codemirror.min.css">
   <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/addon/runmode/runmode-standalone.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/mode/python/python.min.js"></script>
 
-  <title>Instructor Text Embedding</title>
+  <title>Retrieval-Augmented Code Generation</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -46,7 +46,7 @@
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
@@ -90,7 +90,7 @@
     </div>
 
   </div>
-</nav>
+</nav> -->
 
 
 <section class="hero">
@@ -98,31 +98,25 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">One Embedder, Any Task: Instruction-Finetuned Text Embeddings</h1>
+          <h1 class="title is-1 publication-title">ARKS: Active Retrieval in Knowledge Soup for Code Generation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://hongjin-su.github.io/">Hongjin Su*</a><sup>1</sup>,</span>
+              <a href="https://hongjin-su.github.io/">Hongjin Su</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://weijia-shi.netlify.app/">Weijia Shi*</a><sup>2</sup>,</span>
+              <a href="https://scholar.google.com/citations?user=slwTiOUAAAAJ">Shuyang Jiang</a><sup>2</sup>,</span>
             <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~jkasai/">Jungo Kasai</a><sup>2</sup>,</span>
+              <a href="https://halfrot.github.io/">Yuhang Lai</a><sup>2</sup>,</span>
             <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~yizhongw/">Yizhong Wang</a><sup>2</sup>,
+              Haoyu Wu<sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://yushi-hu.github.io/">Yushi Hu</a><sup>2</sup>,
+              <a href="https://bowie.shiboao.top/">Boao Shi</a><sup>1</sup>,
             </span><br>
             <span class="author-block">
-              <a href="https://people.ece.uw.edu/ostendorf/">Mari Ostendorf</a><sup>2</sup>,
+              <a href="https://cheissmart.github.io/">Che Liu</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://scottyih.org/">Wen-tau Yih,</a><sup>3</sup>
-            </span>
-            <span class="author-block">
-              <a href="https://nasmith.github.io/#:~:text=Noah%20Smith%20is%20a%20computer,a%20wide%20range%20of%20applications.">Noah A. Smith</a>,<sup>2,</sup><sup>4</sup>
-            </span>
-            <span class="author-block">
-              <a href="https://www.cs.washington.edu/people/faculty/lsz">Luke Zettlemoyer</a>,<sup>2,</sup><sup>3</sup>
+              <a href="https://siviltaram.github.io/">Qian Liu</a><sup>3</sup>,
             </span>
             <span class="author-block">
               <a href="https://taoyds.github.io/">Tao Yu</a><sup>1</sup>
@@ -131,16 +125,15 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>The University of Hong Kong,</span>
-            <span class="author-block"><sup>2</sup>University of Washington,</span>
-            <span class="author-block"><sup>3</sup>Meta AI,</span>
-            <span class="author-block"><sup>4</sup>Allen Institute for AI</span>
+            <span class="author-block"><sup>2</sup>Fudan University,</span>
+            <span class="author-block"><sup>3</sup>Sea AI Lab</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2212.09741"
+                <a href="https://github.com/hongjin-su/arks_dev"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -150,7 +143,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/xlang-ai/instructor-embedding"
+                <a href="https://github.com/hongjin-su/arks_dev"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -159,7 +152,7 @@
                   </a>
               </span>
               <!-- Twitter Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://huggingface.co/spaces/mteb/leaderboard"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -167,8 +160,8 @@
                   </span>
                   <span>Leaderboard</span>
                   </a>
-              </span>
-              <span class="link-block">
+              </span> -->
+              <!-- <span class="link-block">
                 <a href="https://huggingface.co/hkunlp/instructor-large"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -176,9 +169,9 @@
                   </span>
                   <span>Checkpoint</span>
                   </a>
-              </span>
+              </span> -->
               <span class="link-block">
-                <a href="https://twitter.com/WeijiaShi2/status/1605307966109863936"
+                <a href="https://github.com/hongjin-su/arks_dev"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-twitter"></i>
@@ -187,7 +180,7 @@
                   </a>
               </span>
               <span class="link-block">
-                <a href="https://drive.google.com/file/d/1_Ax8rTeeDKpNxj85LD2Yh7qsh3sYEiSH/view?usp=sharing"
+                <a href="https://drive.google.com/file/d/1g_i6Xyl5wFBeXsQGG5kHzCHwtJiHgTq9/view?usp=sharing"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-clone"></i>
@@ -208,17 +201,17 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="subtitle has-text-centered">
-        We introduce <span class="dnerf">Instructor</span>👨‍🏫, an instruction-finetuned text embedding model that can generate text embeddings tailored to any task (e.g., classification, retrieval, clustering, text evaluation, etc.) and domains (e.g., science, finance, etc.) by simply providing the task instruction, without any finetuning. <span class="dnerf">Instructor</span> achieves sota on 70 diverse embedding tasks!
+        We introduce ARKS, a general pipeline for retrieval-augmented code generation (RACG). We construct a knowledge soup integrating web search, documentation, execution feedback, and evolved code snippets. Through active retrieval in knowledge soup, we demonstrate significant increase in benchmarks about updated libraries and long-tail programming languages (8.6% to 34.6% in ChatGPT)
       </h2>
       <p align="center">
-        <img src="static/images/instructor.png" width="100%" align="middle" class="center"/> <!-- To .gif format-->
+        <img src="static/images/arks.png" width="100%" align="middle" class="center"/> <!-- To .gif format-->
       </p>
 
     </div>
   </div>
 </section>
 
- <section class="section">
+ <!-- <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -234,7 +227,7 @@
   </div>
     <!--/ Abstract. -->
   </div>
-</section>
+</section> -->
   
  <section class="section">
   <div class="container is-max-desktop">
@@ -244,16 +237,14 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We introduce INSTRUCTOR, a new method for computing text embeddings given task instructions: every text input is embedded together with instructions explaining the use case (e.g., task and domain descriptions). Unlike encoders from prior work that are more specialized, INSTRUCTOR is a single embedder that can generate text embeddings tailored to different downstream tasks and domains, without any further training. We first annotate instructions for 330 diverse tasks and train INSTRUCTOR on this multitask mixture with a contrastive loss. We evaluate INSTRUCTOR on 70 embedding evaluation tasks (64 of which are unseen during training), ranging from classification and information retrieval to semantic textual similarity and text generation evaluation. INSTRUCTOR, while having an order of magnitude fewer parameters than the previous best model, achieves state-of-the-art performance, with an average improvement of 3.4% compared to the previous best results on the 70 diverse datasets. Our analysis suggests that INSTRUCTOR is robust to changes in instructions, and that instruction finetuning mitigates the challenge of training a single model on diverse datasets.
+            Recently the retrieval-augmented generation (RAG) paradigm has raised much attention for its potential in incorporating external knowledge into large language models (LLMs) without further training. While widely explored in natural language applications, its utilization in code generation remains under-explored. In this paper, we introduce Active Retrieval in Knowledge Soup (ARKS), an advanced strategy for generalizing large language models for code. In contrast to relying on a single source, we construct a knowledge soup integrating web search, documentation, execution feedback, and evolved code snippets. We employ an active retrieval strategy that iteratively refines the query and updates the knowledge soup. To assess the performance of ARKS, we compile a new benchmark comprising realistic coding problems associated with frequently updated libraries and long-tail programming languages. Experimental results on ChatGPT and CodeLlama demonstrate a substantial improvement in the average execution accuracy of ARKS on LLMs. The analysis confirms the effectiveness of our proposed knowledge soup and active retrieval strategies, offering rich insights into the construction of effective RACG pipelines.
           </p>
-          <span class="dnerf">INSTRUCTOR (335M)</span> is strong because:
+          <span class="dnerf">Arks</span> is effective because:
         <ul>
-          <li><strong>Efficient:</strong> &nbsp Fast adaptation!
-            <br><span class="dnerf">INSTRUCTOR</span> can calculate domain-specific and task-aware embeddings without any further training. </li>
-          <li><strong>General:</strong> &nbsp Any task!
-            <br><span class="dnerf">INSTRUCTOR</span> can be applied to any task for computing fixed-length embeddings of texts. </li>
-          <li><strong>Performance:</strong> &nbsp State-of-the-art!
-            <br><span class="dnerf">INSTRUCTOR</span> achieves state-of-the-art performance on 70 datasets and surpasses models with an order of magnitude larger. </li>
+          <li><strong>Knowledge soup:</strong> &nbsp Diverse knowledge soup consists of not only documentation, but also more resources including web search, code snippets and execution feedback</li>
+          <li><strong>Query Formulation:</strong> &nbsp Apart from natural language question, Arks employ the explained code as more informative query, which helps retrieval models match desired knowledge source </li>
+          <li><strong>Active Retrieval:</strong> &nbsp Compared to RAG, we actively refine query and knowledge soup, which helps to retrieve more relevant information</li>
+          <li><strong>Performance:</strong> &nbsp Across all datasets, ChatGPT and CodeLlama achieve performance gain of 24.0% and 23.8% respectively, compared to the vanilla setting without knowledge augmentation </li>
         </ul>
         </div>
       </div>
@@ -271,16 +262,16 @@
         <h2 class="title is-3">Main Results</h2>
         <div class="content has-text-justified">
           <p>
-            <span class="dnerf">INSTRUCTOR</span> achieves <strong>SOTA</strong> performance without further training on a wide range of tasks.
+            <span class="dnerf">Diverse resources in general help LLM generalization.
           </p>
-        <ul>
+        <!-- <ul>
           <li><a href="https://huggingface.co/spaces/mteb/leaderboard">MTEB</a> (56 diverse datasets including BEIR, STS, etc.)</li>
           <li><a href="https://arxiv.org/abs/2112.04139">Billboard</a> (Evaluate test generation quality)</li>
           <li><a href="https://arxiv.org/abs/2209.01975">Prompt Retrieval</a> (Retrieve examples for in-context learning) </li>
-        </ul>
-          <img src="static/images/main_results.png" class="center">
+        </ul> -->
+          <img src="static/images/main_result_arks.png" class="center">
           <p>
-            Retri., Pair., Class., Sum., Text Eval. refer to retrieval, pair classification, classification, summarization, and text evaluation, respectively. Compared to GTR(335M/1.5B), from which INSTRUCTOR (335M/1.5B) is initialized, instruction finetuninig enhances the performance by 5.9%. Compared to the state-of-the-art model (Sent-T5-XXL), INSTRUCTOR (335M/1.5B) achieves 3.4% and 4.1% performance gains respectively.
+            ChatGPT and CodeLlama execution accuracy with different knowledge sources. Tensor-M refers to Tensorflow-M and Avg. refers to the average score across four benchmarks. Web denotes the web search content; Exec denotes the execution feedback from compiler/interpreter; Code denotes the code snippets generated by LLMs in previous rounds that are verified to be free of syntax error; Doc refers to the documentation. Adding more knowledge sources consistently enhances the performance, which demonstrates the advantage of a diverse knowledge soup in the RACG pipeline.
           </p>
         </div>
       </div>
@@ -298,24 +289,34 @@
         <h2 class="title is-3">Analysis</h2>
         <div class="content has-text-justified">
           <p>
-            Further, the instruction has shown to be important to the INSTRUCTOR training on diverse data (Left), and super-NaturalInstruction datasets are critical to the INSTRUCTOR robustness of prompt paraphrase.
+            We demonstrate the significant performance increase provided by active retrieval on top of one-time retrieval
           </p>
-        <img src="static/images/figure34.png" class="center">
+          <p align="center">
+        <img src="static/images/arks_table3.png" class="center">
+      </p>
           <p>
-            In addition, by making instruction more detailed (Left) and model size larger (Right), the performance of INSTRUCTOR is consistently improved.
+            Next, we show the critical role of both query formulation and retrieval model choice
           </p>
-        <img src="static/images/figure56.png" class="center">
+          <p align="center">
+        <img src="static/images/arks_figure23.png" class="center">
+      </p>
           <p>
-            With domain shift in evaluation, the improvement of instruction tuning is more pronounced.
+            Furthermore, we evaluate the retrieval accuracy, revealing that both retrieval and generator models have large rooms to improve for better generalization
           </p>
          <p align="center">
-        <img src="static/images/domain_adaptation.png" width="400" height="100" class="center">
+        <img src="static/images/arks_table4.png" width="400" height="100" class="center">
            </p>
+        <p>
+            With long-context models and more knowledge included in the prompt, model generalization performance is not guaranteed to improve, calling for more delicate mechanism in RACG pipeline
+        </p>
+        <p align="center">
+          <img src="static/images/arks_figure4.png" class="center">
+        </p>
           <p>
-            Last but not least, we use T-SNE to visualize two examples. The green dot pair is an example with different sentiment. Without instructions, they are close in the embedding space (probably because they 4 same words in text). With instructions, INSTRUCTOR separates them apart and differentiate their sentiment. For red pairs, they are distant without instructions (probably because they look very different). With instructions, they are closer, which is aligned with their same emotion.
+            Last but not least, we perform a case study o provide a more intuitive understanding of the improvement achieved by ARKS on top of LLMs,
           </p>
         <p align="center">
-           <img src="static/images/qualititive.png" width="400" height="400" class="center"> <!-- To .gif format-->
+           <img src="static/images/arks_figure5.png" width="400" height="400" class="center"> <!-- To .gif format-->
         </p>
         </div>
       </div>
@@ -330,10 +331,13 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">More instruction examples</h2>
+        <h2 class="title is-3">Dataset Statistics</h2>
         <div class="content has-text-justified">
+          <p>
+            To evaluate Arks, we curate 4 datasets covering two realistic scenarios of RACG: updated libraries and long-tail programming languages. Here are the data statistics:
+          </p>
         <p align="center">
-           <img src="static/images/instruction_examples.png" class="center"> <!-- To .gif format-->
+           <img src="static/images/arks_data_statistics.png" class="center"> <!-- To .gif format-->
         </p>
         </div>
       </div>
@@ -343,7 +347,7 @@
   </div>
 </section>
 
- <section class="section">
+ <!-- <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -365,9 +369,9 @@
   </div>
     <!--/ Abstract. -->
   </div>
-</section>
+</section> -->
 
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop content">
     <h2 class="title">Acknowledgement</h2>
    We thank <a href="https://akariasai.github.io/">Akari Asai</a>, Jack Lin, Minghan Li, and <a href="https://noahs-ark.github.io/">the ARK group at UW</a> for their helpful feedback on this work.
@@ -384,7 +388,7 @@
   year={2022},
 }</code></pre>
   </div>
-</section>
+</section> -->
 
 <footer class="footer">
   <div class="container">
