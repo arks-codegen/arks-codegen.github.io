@@ -155,7 +155,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">ARKS: Active Retrieval in Knowledge Soup for Code Generation</h1>
+          <h1 class="title is-1 publication-title">EVOR: Evolving Retrieval for Code Generation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://hongjin-su.github.io/">Hongjin Su</a><sup>1</sup>,</span>
@@ -258,7 +258,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="subtitle has-text-centered">
-        We introduce ARKS, a general pipeline for retrieval-augmented code generation (RACG). We construct a knowledge soup integrating web search, documentation, execution feedback, and evolved code snippets. Through active retrieval in knowledge soup, we demonstrate significant increase in benchmarks about updated libraries and long-tail programming languages (8.6% to 34.6% in ChatGPT)
+        Recently the retrieval-augmented generation (RAG) has been successfully applied in code generation. However, existing pipelines for retrieval-augmented code generation (RACG) employ static knowledge bases with a single source, limiting the adaptation capabilities of Large Language Models (LLMs) to domains they have insufficient knowledge of. In this work, we develop a novel pipeline, EVOR, that employs the synchronous evolution of both queries and diverse knowledge bases. On two realistic settings where the external knowledge is required to solve code generation tasks, we compile four new datasets associated with frequently updated libraries and long-tail programming languages, named EVOR-BENCH. Extensive experiments demonstrate that EVOR achieves two to four times of execution accuracy compared to other methods such as Reflexion (Shinn et al., 2024), DocPrompting (Zhou et al., 2023), etc. We demonstrate that EVOR is flexible and can be easily combined with them to achieve further improvement. Further analysis reveals that EVOR benefits from the synchronous evolution of queries and documents and the diverse information sources in the knowledge base. We hope that our studies will inspire more insights into the design of advanced RACG pipelines in future research.
       </h2>
       <p align="center">
         <img src="static/images/arks.png" width="70%" align="middle" class="center"/> <!-- To .gif format-->
